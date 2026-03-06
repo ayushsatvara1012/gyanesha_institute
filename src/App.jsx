@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Courses from './pages/Courses';
-import Faculties from './pages/Faculties';
-import Contact from './pages/Contact';
+import Loader from './components/Loader';
+
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Courses = lazy(() => import('./pages/Courses'));
+const Faculties = lazy(() => import('./pages/Faculties'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout />,
+        element: (
+            <Suspense fallback={<Loader />}>
+                <Layout />
+            </Suspense>
+        ),
         children: [
             { path: '/', element: <Home /> },
             { path: '/about', element: <About /> },

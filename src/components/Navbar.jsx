@@ -20,9 +20,15 @@ const Navbar = () => {
         <nav className="fixed top-0 w-full glass-nav bg-white backdrop-blur-md z-50 border-b border-slate-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
-                    <div className="flex items-center gap-3">
-                        <Link to="/" onClick={closeMobileMenu}>
-                            <img src={logo} alt="Gyanesha Institute Logo" className="h-10 md:h-12 w-auto object-contain" />
+                    <div className="flex items-center gap-3 flex-shrink-0">
+                        <Link to="/" onClick={closeMobileMenu} className="flex-shrink-0 block">
+                            <img
+                                src={logo}
+                                alt="Gyanesha Institute Logo"
+                                className="h-10 md:h-12 w-auto object-contain flex-shrink-0"
+                                width="180"
+                                height="48"
+                            />
                         </Link>
                     </div>
 
