@@ -20,3 +20,32 @@
     @apply bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300;
   }
 }
+
+/* SapyBase Chat Widget CSS Overrides */
+/* Fix positioning issue */
+#sapybase-widget-container {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important;
+  height: auto !important;
+}
+
+/* Overrides Tailwind's 'display: block' reset for SVGs and images within the widget */
+#sapybase-widget-container svg,
+#sapybase-widget-container img {
+  display: inline-block !important;
+  vertical-align: middle;
+}
+
+/* Ensure proper sizing within the widget */
+#sapybase-widget-container * {
+  box-sizing: border-box !important;
+}
+
+/* Fix for transparent text inside widget */
+#sapybase-widget-container .text-transparent {
+  color: inherit !important;
+  -webkit-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+}
