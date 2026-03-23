@@ -1,89 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gyanesha Institute | Excellence in Education</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZhrib2Bg-4.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <style>
-      .initial-loader {
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f8fafc;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gyanesha Institute | Excellence in Education</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font"
+    href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZhrib2Bg-4.woff2"
+    type="font/woff2" crossorigin>
+  <link rel="preload" as="image"
+    href="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css'>
+  <link rel='stylesheet'
+    href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <style>
+    .initial-loader {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8fafc;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+
+    .loader-container {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit-path {
+      position: absolute;
+      inset: 0;
+      border: 1px dashed #cbd5e1;
+      border-radius: 50%;
+    }
+
+    .pulse-core {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background-color: #2563eb;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .satellite-wrapper {
+      position: absolute;
+      inset: 0;
+      animation: spin 3s linear infinite;
+    }
+
+    .satellite {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      background-color: #f59e0b;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
       }
-      .loader-container {
-        position: relative;
-        width: 96px;
-        height: 96px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+
+      50% {
+        opacity: 0.5;
+        transform: scale(0.95);
       }
-      .orbit-path {
-        position: absolute;
-        inset: 0;
-        border: 1px dashed #cbd5e1;
-        border-radius: 50%;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
       }
-      .pulse-core {
-        position: absolute;
-        width: 48px;
-        height: 48px;
-        background-color: #2563eb;
-        border-radius: 50%;
-        box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+      to {
+        transform: rotate(360deg);
       }
-      .satellite-wrapper {
-        position: absolute;
-        inset: 0;
-        animation: spin 3s linear infinite;
-      }
-      .satellite {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 16px;
-        height: 16px;
-        background-color: #f59e0b;
-        border-radius: 50%;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.5; transform: scale(0.95); }
-      }
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root">
-      <div class="initial-loader">
-        <div class="loader-container">
-          <div class="orbit-path"></div>
-          <div class="pulse-core"></div>
-          <div class="satellite-wrapper">
-            <div class="satellite"></div>
-          </div>
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div class="initial-loader">
+      <div class="loader-container">
+        <div class="orbit-path"></div>
+        <div class="pulse-core"></div>
+        <div class="satellite-wrapper">
+          <div class="satellite"></div>
         </div>
       </div>
     </div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  </div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script src="https://www.sapybase.com/widget.js" defer
+    data-api-key="sb_live_h4deLIiQUVHutluui5uYOgLugnHE06isCsfNu6gz614"
+    data-api-url="https://www.sapybase.com"></script>
+</body>
+
 </html>
